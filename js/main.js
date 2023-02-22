@@ -38,7 +38,7 @@ function btnClicked() {
 
 // Menu Option Functions
 function traverseSurveyData() {
-  // Count the number of "Yes", "No", and "Maybe" responses,
+  // List the number of "Yes", "No", or "Maybe" responses
   let countYes = 0;
   let countNo = 0;
   let countMaybe = 0;
@@ -59,12 +59,7 @@ function traverseSurveyData() {
 }
 
 function traverseAgeData() {
-  // Traverse the ageData array to:
-  // Count the number of ages under 18,
-  // Count the number of ages between 18 and 35, inclusive
-  // Count the number of ages between 36 and 65, inclusive
-  // Count the number of ages above 65,
-  // and output the results in the outputEl.
+  // List the data in 4 age groups
   let count18 = 0;
   let count35 = 0;
   let count65 = 0;
@@ -73,24 +68,35 @@ function traverseAgeData() {
   for (let i = 0; i < ageData.length; i++) {
     if (ageData[i] < 18) {
       count18++;
-    } else if (ageData[i] >= 18 < 36) {
+    } else if (ageData[i] < 36) {
       count35++;
-    } else if (ageData[i] >= 36 < 66) {
+    } else if (ageData[i] < 66) {
       count65++;
     } else {
       count108++;
     }
 
-    outputEl.innerHTML = "Age Data";
-    console.log(ageData);
+    outputEl.innerHTML = `<h2>Age Data</h2>
+    <p>Under 18: ${count18}</p>
+    <p>18 to 35: ${count35}</p>
+    <p>36 to 65: ${count65}</p>
+    <p>Above 65: ${count108}</p>`
   }
 }
 function traverseNumberData() {
-  // Traverse the numberData array to:
-  // Count the number of even numbers,
-  // Count the number of odd numbers,
-  // and output the results in the outputEl.
+  // List the amount of odd or even numbers 
+  let countEven = 0;
+  let countOdd = 0;
 
-  outputEl.innerHTML = "Number Data";
-  console.log(numberData);
+  for (let i = 0; i < numberData.length; i++) {
+    if (numberData[i] % 2 === 0) {
+      countEven++;
+    } else {
+      countOdd++;
+    }
+  }
+
+  outputEl.innerHTML = `<h2>Number Data</h2>
+  <p>Odd Numbers: ${countEven}</p>
+  <p>Even Numbers: ${countOdd}</p>`
 }
